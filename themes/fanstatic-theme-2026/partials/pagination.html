@@ -1,0 +1,45 @@
+{% liquid
+assign maxmin = 2
+assign min = pager.Current | minus: maxmin
+if min < 1
+    assign min = 1
+endif 
+
+assign max = pager.Current | plus: maxmin
+if max > pager.Count
+    assign max = pager.Count
+endif 
+%}
+
+{% if pager.Count > 1 %}
+<ul class="pagination pagination-default">
+    <li class="page-item {% unless pager.Prev %}disabled{% endunless %}">
+        <a {% unless pager.Prev %}aria-disabled="true"{% endunless %} aria-label="First" class="page-link" role="button" href="{{ pager.First }}">««</a>
+    </li>
+
+    <li class="page-item {% unless pager.Prev %}disabled{% endunless %}">
+        <a {% unless pager.Prev %}aria-disabled="true"{% endunless %} class="page-link" role="button" aria-label="Previous" href="{{ pager.Prev }}">«</a>
+    </li>
+
+    {% for i in (min..max) %}
+    <li class="page-item {% if pager.Current == i %}active{% endif %}">
+        <a aria-label="Page {{ i }}" class="page-link" role="button" 
+        {% if pager.Current != i %}
+            {% if i == 1 %}
+                href="{{ pager.BaseUrl }}"
+            {% else %}
+                href="{{ pager.BaseUrl }}{{ pager.PaginatePath }}/{{ i }}/"
+            {% endif %}
+        {% endif %}>{{ i }}</a>
+    </li>
+    {% endfor %}
+
+    <li class="page-item {% unless pager.Next %}disabled{% endunless %}">
+        <a {% unless pager.Next %}aria-disabled="true"{% endunless %} aria-label="Next" class="page-link" role="button" href="{{ pager.Next }}">»</a>
+    </li>
+
+    <li class="page-item {% unless pager.Next %}disabled{% endunless %}">
+        <a {% unless pager.Next %}aria-disabled="true"{% endunless %} aria-label="Last" class="page-link" role="button" href="{{ pager.Last }}">»»</a>
+    </li>
+</ul>
+{% endif %}

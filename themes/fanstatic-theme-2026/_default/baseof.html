@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+    {% render 'partials/baseof-head.html' %}
+    {% render 'partials/baseof-head-twitter.html' %}
+</head>
+
+<body>
+    {% render 'partials/baseof-header.html' %}
+
+    {% if page.IsHome -%}
+    {{ page.Content }}
+    {% else -%}
+    {% assign isDoc = page.Section == 'developers' or page.Section == 'docs' %}
+    <div class="container">
+        <div class="row">
+            <div {% if isDoc %}class="col-md-9" {% endif %}>
+                {{ page.Content }}
+            </div>
+
+            {% if isDoc %}
+            <div class="col-md-3">
+                {% assign sortedPages = site.RegularPages | where: 'Section', page.Section | sort: 'Permalink' |
+                sort: 'Weight' %}
+                {% render 'partials/menu-hierarchy.html', page: page, pages: sortedPages, level: 2 %}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Footer -->
+    {% render 'partials/baseof-footer.html' %}
+</body>
+
+</html>

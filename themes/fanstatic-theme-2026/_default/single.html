@@ -1,0 +1,23 @@
+<article class="bg-dark p-3">
+    <h1 class="fw-bolder text-capitalize">
+    {{- page.Title }}
+    </h1>
+    {% if page.Section == "blog" %}
+    <small class="text-body-secondary">{{ page.Date | date: "%Y-%m-%d" }}</small>
+    {% endif %}
+
+    <ul class="nav">
+        {% for tag in page.TagsReference %}
+        <li class="nav-item"><a class="nav-link" href="{{ tag.Permalink }}">#{{ tag.Title }}</a></li>
+        {% endfor %}
+    </ul>
+
+    {{ page.ContentPreRendered }}
+
+</article>
+
+{% if page.Params.hasCode %}
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js" integrity="sha384-6F4Ibv/ylL12O35KFWTeGTHuBKDz5L6yjKsgv3QHQ8s4NTqlDXq7kMlYXGs7MHFc" crossorigin="anonymous"></script>
+    <script async src="/prism.js"></script>
+    <link rel="stylesheet" href="/prism.css">
+{% endif %}

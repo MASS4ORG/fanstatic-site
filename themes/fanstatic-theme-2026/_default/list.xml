@@ -1,0 +1,4 @@
+{% assign sortedPages = page.RegularPages | sort: 'Date' | reverse %}
+{% for pageList in sortedPages %}
+    {{ pageList.Content }}
+{% endfor %}

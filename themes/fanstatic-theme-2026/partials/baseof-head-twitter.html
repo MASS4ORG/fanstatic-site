@@ -1,0 +1,18 @@
+<!-- Social link preview -->
+{% assign cardcard = "summary" %}
+{% assign cardtitle = Site.Title %}
+{% assign cardDescription = Site.Description %}
+{% assign cardimage = Site.Params.Logo %}
+
+{% if Page.IsPage %}
+    {% assign cardtitle = Page.Title %}
+
+    {% if Page.Description %}
+        {% assign cardDescription = Page.Description %}
+    {% endif %}
+{% endif %}
+
+<meta name="twitter:card" content="{{ cardcard }}">
+<meta name="twitter:title" content="{{ cardtitle }}">
+<meta name="twitter:description" content="{{ cardDescription }}">
+<meta name="twitter:image" content="{{ cardimage }}">

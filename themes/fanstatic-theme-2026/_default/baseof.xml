@@ -1,0 +1,17 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>{{ page.Title | escape }} - {{ site.Title | escape }}</title>
+        <link>{{site.BaseURL}}{{ page.Permalink }}</link>
+        <description>{{ site.Description }}</description>
+        <pubDate>{{ page.Date | date: "%Y-%m-%dT%H:%M:%SZ" }}</pubDate>
+        <lastBuildDate>{{ "now" | date: "%Y-%m-%dT%H:%M:%SZ" }}</lastBuildDate>
+        <atom:link
+            href="{{ site.BaseURL | append: page.PermalinkDir | append: 'index.xml' }}"
+            rel="self"
+            type="application/rss+xml"
+        />
+
+        {{ page.Content }}
+
+    </channel>
+</rss>

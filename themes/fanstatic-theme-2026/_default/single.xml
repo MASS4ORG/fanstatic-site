@@ -1,0 +1,7 @@
+<item>
+    <title>{{- page.Title | escape }}</title>
+    <guid isPermaLink="true">{{ site.BaseURL }}{{ page.Permalink }}</guid>
+    <link>{{ site.BaseURL }}{{ page.Permalink }}</link>
+    <pubDate>{{ page.Date | date: "%Y-%m-%dT%H:%M:%SZ" }}</pubDate>
+    <description><![CDATA[{{ page.ContentPreRendered }}]]></description>
+</item>

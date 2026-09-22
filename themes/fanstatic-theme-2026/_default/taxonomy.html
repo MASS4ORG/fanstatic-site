@@ -1,0 +1,16 @@
+<h1 class="fw-bolder text-capitalize">
+<a class="text-decoration-none link-light" href="{{ page.Permalink }}">{{ page.Title }}</a>
+</h1>
+
+{{ page.ContentPreRendered }}
+
+{% assign sortedPages = page.RegularPages | sort: 'Date' | reverse %}
+{% assign pager = sortedPages | paginate: 10 %}
+
+{% for pageList in pager.PageItems %}
+    {{ pageList.Content }}
+{% endfor %}
+
+<div class="d-flex justify-content-center mt-5">
+    {% render "partials/pagination.html", pager: pager %}
+</div>

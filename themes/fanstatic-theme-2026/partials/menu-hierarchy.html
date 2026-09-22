@@ -1,0 +1,23 @@
+{% assign partsMinus = 1 %}
+{% assign levelInit = 2 %}
+{% assign levelInit2 = levelInit | plus: 1 %}
+
+{% if level > levelInit %}<ul class="">{% endif %}
+{% for pageList in pages %}
+    {% assign parts = pageList.RelPermalink | split: "/" %}
+    {% if parts.size == level and pageList.RelPermalink contains parentUrl %}
+        {% if level > levelInit %}<li class="list-group-item {% if pageList == page %}active{% endif %}">{% endif %}
+            <a class="text-decoration-none link-light {% if level <= levelInit2 %}bd-links-heading d-flex w-100 align-items-center fw-semibold{% endif %}" href="{{ pageList.RelPermalink }}">{{ pageList.Title }}</a>
+        {% if level == levelInit %}<hr>{% endif %}
+
+            {% assign partsQtd = parts.size | minus: partsMinus %}
+            {% assign newParentUrlParts = parts | slice: 0, partsQtd %}
+            {% assign newParentUrl = newParentUrlParts | join: "/" %}
+
+            {% assign newLevel = level | plus: 1 %}
+
+            {% render 'partials/menu-hierarchy.html', page: pageList, pages: pages, level: newLevel, parentUrl: newParentUrl %}
+        {% if level > levelInit %}</li>{% endif %}
+    {% endif %}
+{% endfor %}
+{% if level > levelInit %}</ul>{% endif %}

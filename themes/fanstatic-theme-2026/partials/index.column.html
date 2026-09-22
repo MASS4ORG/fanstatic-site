@@ -1,0 +1,9 @@
+{% if level == 1 %}
+<div class="col d-flex align-items-center text-center">
+    <h1 class="container">{{ pageList.Title }}</h1>
+</div>
+{% else %}
+<div class="col d-flex align-items-center text-center">
+    {{ pageList.ContentPreRendered }}
+</div>
+{% endif %}

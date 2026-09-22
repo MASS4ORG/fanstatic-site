@@ -1,0 +1,7 @@
+public/
+.gitlab-ci-local
+
+# IDEs
+.vscode
+.zed
+.idea
