@@ -15,7 +15,7 @@ If you are looking for the project itself, go to https://github.com/MASS4ORG/fan
 
 We welcome contributions to the **Fanstatic**! If you have any ideas, bug fixes, or feature suggestions, feel free to submit a pull request. Let's make **Fanstatic** even more magical together.
 
-This site is powered by the incredible Bootstrap library and hosted on [GitLab Pages](https://github.com/MASS4ORG/fanstatic-site), giving it a juicy platform to shine.
+This site is powered by the incredible Bootstrap library and hosted on [GitHub Pages](https://github.com/MASS4ORG/fanstatic-site), giving it a juicy platform to shine.
 
 ## API Documentation Automation
 
