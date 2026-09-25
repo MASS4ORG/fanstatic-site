@@ -10,7 +10,7 @@ GitLab is a great place to host your site. This very site is there.
 Just create `.gitlab-ci.yml` file in the root folder with this content:
 
 ```yml
-image: registry.github.com/MASS4ORG/fanstatic:alpine # use the latest version
+image: ghcr.io/mass4org/fanstatic:alpine # use the latest version
 
 pages:
   script:

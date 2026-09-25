@@ -179,7 +179,7 @@ Tags:
 
 Welcome to my blog. This is my first post.
 
-I built this with [Fanstatic](https://fanstatic.brunomassa.com), a static site generator
+I built this with [Fanstatic](https://fanstatic.mass4.org), a static site generator
 written in C#. It was surprisingly easy to set up.
 ```
 

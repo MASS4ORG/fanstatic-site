@@ -12,7 +12,7 @@ Params:
 
     #SuCoS #SSG #DotNet
     
-    https://sucos.brunomassa.com/v6.8.0/
+    https://fanstatic.mass4.org/v6.8.0/
 ---
 
 SuCoS v6.8.0 introduces highly convenient Hugo-style shortcodes for internal link management alongside major improvements to link validation efficiency. This update makes it easier to reference your internal pages dynamically while ensuring local test environments don't trigger unnecessary external requests.

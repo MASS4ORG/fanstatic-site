@@ -1,7 +1,7 @@
 # Official Fanstatic site theme
 
 [Repository](https://github.com/MASS4ORG/site-theme)
-[Fanstatic site](https://fanstatic.brunomassa.com)
+[Fanstatic site](https://fanstatic.mass4.org)
 
 ## Resources
 

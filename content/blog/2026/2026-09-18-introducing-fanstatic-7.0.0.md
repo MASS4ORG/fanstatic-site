@@ -12,7 +12,7 @@ Params:
 
     #Fanstatic #SSG #DotNet
 
-    https://fanstatic.brunomassa.com/v7.0.0/
+    https://fanstatic.mass4.org/v7.0.0/
 ---
 
 **Fanstatic** is the new name for the static site generator you may have known as SuCoS. If you've used SuCoS,

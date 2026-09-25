@@ -1,5 +1,5 @@
 Title: "Fanstatic"
-BaseURL: https://fanstatic.brunomassa.com
+BaseURL: https://fanstatic.mass4.org
 Description: Tastiest C# Static Site Generator of the World
 Copyright: "<a href='https://brunomassa.com'>Bruno Massa</a>"
 
@@ -7,7 +7,7 @@ Theme: fanstatic-theme-2026
 GoogleAnalytics: G-KBX82VHBW6
 
 Params:
-  Logo: https://fanstatic.brunomassa.com/favicon-32x32.png
+  Logo: /favicon-32x32.png
   # Footer: Infuse the Web with Flavor
   Author:
     Name: "Bruno Massa"
@@ -25,9 +25,9 @@ Params:
     - id: ko-fi
       url: https://ko-fi.com/brmassa
       icon_class: bi-heart-fill text-danger
-    - id: gitlab
-      url: https://github.com/MASS4ORG/fanstatic
-      icon_class: bi-git
+    - id: github
+      url: https://github.com/MASS4ORG/Fanstatic
+      icon_class: bi-github
     - id: mastodon
       url: https://fosstodon.org/@Fanstatic
       icon_class: bi-mastodon
