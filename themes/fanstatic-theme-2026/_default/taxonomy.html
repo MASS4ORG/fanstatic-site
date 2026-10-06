@@ -4,13 +4,7 @@
 
 {{ page.ContentPreRendered }}
 
-{% assign sortedPages = page.RegularPages | sort: 'Date' | reverse %}
-{% assign pager = sortedPages | paginate: 10 %}
-
-{% for pageList in pager.PageItems %}
-    {{ pageList.Content }}
+{% assign taxonomyTerms = site.Taxonomies[page.Section] %}
+{% for term in taxonomyTerms %}
+    <a href="{{ term.Permalink }}">{{ term.Name }} ({{ term.Count }})</a>
 {% endfor %}
-
-<div class="d-flex justify-content-center mt-5">
-    {% render "partials/pagination.html", pager: pager %}
-</div>

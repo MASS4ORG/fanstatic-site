@@ -37,4 +37,4 @@ Nothing runs at request time. Visitors receive pre-built files served by a plain
 
 - [Install Fanstatic](/docs/installation) — download the binary for your platform
 - [Quick start](/docs) — create and preview your first site in two minutes
-- [Theming](/docs/theme) — learn how Liquid templates work
+- [Theming](/docs/theming) — learn how Liquid templates work

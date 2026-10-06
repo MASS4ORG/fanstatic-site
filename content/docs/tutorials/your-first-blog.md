@@ -113,9 +113,9 @@ Edit `themes/blog-theme/_default/single.html`:
         <time datetime="{{ page.Date | date: '%Y-%m-%d' }}">
             {{ page.Date | date: '%B %d, %Y' }}
         </time>
-        {% if page.Tags %}
+        {% if page.Taxonomies.tags %}
         <div class="tags">
-            {% for tag in page.Tags %}
+            {% for tag in page.Taxonomies.tags %}
             <a href="{{ tag.Permalink }}" class="tag">{{ tag.Title }}</a>
             {% endfor %}
         </div>
@@ -143,9 +143,9 @@ Edit `themes/blog-theme/_default/list.html`:
     <li>
         <a href="{{ post.Permalink }}">{{ post.Title }}</a>
         <time>{{ post.Date | date: '%B %d, %Y' }}</time>
-        {% if post.Tags %}
+        {% if post.Taxonomies.tags %}
         <span class="tags">
-            {% for tag in post.Tags %}
+            {% for tag in post.Taxonomies.tags %}
             <a href="{{ tag.Permalink }}">{{ tag.Title }}</a>
             {% endfor %}
         </span>

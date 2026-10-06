@@ -98,4 +98,4 @@ All site settings are accessible from any template via the `site` object:
 {% endif %}
 ```
 
-For the full list of site variables, see [Site Variables](/docs/theme/variables/site).
+For the full list of site variables, see [Site Variables](docs/theming/template-variables/site).

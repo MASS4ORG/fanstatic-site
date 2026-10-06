@@ -25,8 +25,7 @@ SuCoS v6.8.0 introduces highly convenient Hugo-style shortcodes for internal lin
 We've added native support for `ref` and `relref` shortcodes directly within your Markdown content. This allows you to resolve page permalinks dynamically without hardcoding URLs.
 
 ```
-Check out our [About Page]({{< ref "path/to/page.md" >} }) for absolute links, 
-or link relatively using [this section]({{< relref "path/to/page.md#anchor" >} }).
+Check out our [About Page]({{< ref "path/to/page.md" >} }) for absolute links, or link relatively using [this section]({{< relref "path/to/page.md#anchor" >} }).
 
 ```
 

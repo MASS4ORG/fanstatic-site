@@ -79,6 +79,6 @@ The complete site is written to `public/`. Upload that directory to any static h
 ## What's next?
 
 - [Content guide](/docs/content) — front matter, sections, taxonomies
-- [Theming guide](/docs/theme) — Liquid templates, partials, layouts
+- [Theming guide](/docs/theming) — Liquid templates, partials, layouts
 - [CLI reference](/docs/CLI) — all commands and options
 - [Installation guides](/docs/installation) — Linux, Windows, GitLab CI/CD

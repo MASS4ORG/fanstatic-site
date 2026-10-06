@@ -1,61 +1,94 @@
 ---
-Title: Taxonomies
+Title: Taxonomy
 Params:
   hasCode: true
 ---
 
-Taxonomies let you group and cross-reference content. The most common taxonomy is **Tags**. Fanstatic automatically generates list pages for each taxonomy term.
+Taxonomies group and cross-reference content. Fanstatic generates a taxonomy listing and a term page for every configured term.
 
-## Tags
+## Configuration
 
-Add `Tags` to any page's front matter:
+Taxonomies map a name to its URL path. By default, `tag` maps to `tags` and `category` maps to `categories`:
+
+```yaml
+Taxonomies:
+  tag: tags
+  category: categories
+  series: series
+```
+
+When you configure the mapping, it defines the site's complete taxonomy set; include `tag: tags` and
+`category: categories` if you want to retain those defaults. Set `Taxonomies: {}` to disable taxonomy generation.
+
+## Assigning terms
+
+Use `Tags` for tags and the taxonomy's plural path for categories or custom terms:
 
 ```yaml
 ---
 Title: Getting Started with Fanstatic
 Tags:
   - tutorial
-  - beginner
+Categories:
+  - guides
+Series:
+  - first-steps
 ---
 ```
 
-Fanstatic automatically creates:
+Fanstatic generates `/tags/tutorial/`, `/categories/guides/`, and `/series/first-steps/`.
 
-- `/tags/` — list of all tags
-- `/tags/tutorial/` — list of pages tagged `tutorial`
-- `/tags/beginner/` — list of pages tagged `beginner`
+Customize a term's title, description, or weight with `content/<plural>/<term>/_index.md`:
 
-## Linking to tag pages
+```yaml
+---
+Title: First Steps
+Description: A sequence of introductory articles.
+Weight: 10
+---
+```
 
-From any template, you can link to a page's tags:
+## Template data
+
+`page.Taxonomies` contains the assigned term pages, grouped by taxonomy path:
 
 ```liquid
-{% for tag in page.Tags %}
+{% for tag in page.Taxonomies.tags %}
 <a href="{{ tag.Permalink }}">{{ tag.Title }}</a>
 {% endfor %}
 ```
 
-## Listing all tags on a page
-
-To build a tag cloud or nav, iterate over all tag pages:
+`site.Taxonomies` contains site-wide terms. Each term has `Name`, `Permalink`, `Count`, and `Pages`. Iterating the
+collection directly orders terms by descending page count, then by name. In code, the collection also exposes
+`ByCount` and `ByName` orderings. In Liquid, use the built-in `sort` filter for alphabetical ordering:
 
 ```liquid
-{% assign tags = site.RegularPages | where: 'Section', 'tags' | sort: 'Title' %}
-{% for tag in tags %}
-<a href="{{ tag.Permalink }}">{{ tag.Title }} ({{ tag.Pages | size }})</a>
+{% for tag in site.Taxonomies.tags %}
+<a href="{{ tag.Permalink }}">{{ tag.Name }} ({{ tag.Count }})</a>
 {% endfor %}
 ```
 
-## Tag page templates
+```liquid
+{% assign tagsByName = site.Taxonomies.tags | sort: 'Name' %}
+{% for tag in tagsByName %}
+<a href="{{ tag.Permalink }}">{{ tag.Name }}</a>
+{% endfor %}
+```
 
-Tag term pages (e.g. `/tags/tutorial/`) use the `term.html` template. The taxonomy index page (`/tags/`) uses `taxonomy.html`. Both templates have access to `page.Pages`, which contains all pages with that tag.
+The legacy `page.Tags` string list and `page.TagsReference` page list remain available.
 
-Example `term.html`:
+## Taxonomy templates
+
+Taxonomy listing pages (e.g. `/tags/`) use `<plural>/taxonomy.html`; term pages use `<plural>/term.html`. These fall
+back to `_default/taxonomy.html` and `_default/term.html`. Output formats are controlled by the `taxonomy` and `term`
+entries in `KindOutputFormats`.
+
+Term pages expose assigned content through `page.Pages` and `page.RegularPages`:
 
 ```liquid
-<h1>Posts tagged: {{ page.Title }}</h1>
+<h1>{{ page.Title }}</h1>
 <ul>
-{% for post in page.Pages %}
+{% for post in page.RegularPages %}
   <li><a href="{{ post.Permalink }}">{{ post.Title }}</a></li>
 {% endfor %}
 </ul>

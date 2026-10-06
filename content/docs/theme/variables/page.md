@@ -13,12 +13,15 @@ These come directly from the page's YAML front matter.
 | Variable | Type | Description |
 |---|---|---|
 | `page.Title` | string | Page title |
+| `page.Description` | string | Content description |
 | `page.Date` | date | Publication date |
 | `page.PublishDate` | date | Publish date (defaults to `Date`) |
 | `page.ExpiryDate` | date | Date after which the page is excluded |
 | `page.Lastmod` | date | Last modification date |
 | `page.Draft` | bool | Whether the page is a draft |
-| `page.Tags` | page list | Tags assigned to this page |
+| `page.Tags` | string list | Tag names assigned to this page (legacy) |
+| `page.Taxonomies` | dictionary of page lists | Assigned taxonomy terms keyed by taxonomy path (e.g. `page.Taxonomies.tags`) |
+| `page.TagsReference` | page list | Assigned tag term pages (legacy) |
 | `page.Weight` | int | Sort weight |
 | `page.Type` | string | Content type; defaults to section name |
 | `page.Params` | map | Any custom front matter fields |
@@ -43,6 +46,14 @@ These are set by Fanstatic at build time, not from front matter.
 | `page.IsHome` | bool | True if this is the home page |
 | `page.IsSection` | bool | True if this is a section page |
 | `page.Pages` | page list | Child pages (on section/taxonomy pages) |
+| `page.PagesByDate` | page list | Child pages sorted by date, ascending |
+| `page.PagesByLastMod` | page list | Child pages sorted by last modification, ascending |
+| `page.PagesByWeight` | page list | Child pages sorted by weight, ascending |
+| `page.PagesByTitle` | page list | Child pages sorted by title |
+| `page.RegularPagesByDate` | page list | Regular child pages sorted by date, ascending |
+| `page.RegularPagesByLastMod` | page list | Regular child pages sorted by last modification, ascending |
+| `page.RegularPagesByWeight` | page list | Regular child pages sorted by weight, ascending |
+| `page.RegularPagesByTitle` | page list | Regular child pages sorted by title |
 | `page.Site` | site | The site object (same as `site`) |
 | `page.Parent` | page | Parent page in the hierarchy |
 | `page.OutputFormats` | list | Available output formats for this page |
@@ -80,6 +91,10 @@ Available on pages in multi-language sites (see [Localization](/docs/content/loc
 
 ## Usage examples
 
+The cached `*ByDate`, `*ByLastMod`, `*ByWeight`, and `*ByTitle` views are available in Fanstatic 7.2.0 and later.
+Use them instead of sorting the same page collection repeatedly. They sort ascending; reverse a view when the
+newest, latest, or heaviest items should appear first.
+
 ### Single page template
 
 ```liquid
@@ -89,9 +104,9 @@ Available on pages in multi-language sites (see [Localization](/docs/content/loc
         {{ page.Date | date: '%B %d, %Y' }}
     </time>
 
-    {% if page.Tags %}
+    {% if page.Taxonomies.tags %}
     <div class="tags">
-        {% for tag in page.Tags %}
+        {% for tag in page.Taxonomies.tags %}
         <a href="{{ tag.Permalink }}">{{ tag.Title }}</a>
         {% endfor %}
     </div>

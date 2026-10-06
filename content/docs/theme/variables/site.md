@@ -38,8 +38,13 @@ These come from `fanstatic.yaml`:
 |---|---|
 | `site.Pages` | All pages including section, taxonomy, and home pages (filtered by current language) |
 | `site.RegularPages` | Regular content pages only (filtered by current language) |
+| `site.RegularPagesByDate` | Regular pages sorted by date, ascending |
+| `site.RegularPagesByLastMod` | Regular pages sorted by last modification, ascending |
+| `site.RegularPagesByWeight` | Regular pages sorted by weight, ascending |
+| `site.RegularPagesByTitle` | Regular pages sorted by title |
 | `site.AllRegularPages` | All regular pages across all languages and output formats — use for sitemaps and global listings |
 | `site.Home` | The home page object for the current language |
+| `site.Taxonomies` | Taxonomy term lists keyed by path; each term exposes `Name`, `Permalink`, `Count`, and `Pages` |
 
 ## Language variables
 
@@ -52,12 +57,16 @@ Available on multi-language sites (see [Localization](/docs/content/localization
 
 ### Filtering and sorting pages
 
+The cached `site.RegularPagesBy*` views are available in Fanstatic 7.2.0 and later. They sort ascending; use
+`reverse` for descending order. The shipped `list.xml` and `baseof.html` templates intentionally keep Liquid's
+`sort` filter because their ordering behavior is part of those templates.
+
 ```liquid
 {% comment %} All blog posts, newest first {% endcomment %}
-{% assign posts = site.RegularPages | where: 'Section', 'blog' | sort: 'Date' | reverse %}
+{% assign posts = site.RegularPagesByDate | where: 'Section', 'blog' | reverse %}
 
 {% comment %} Pages in a section, sorted by weight {% endcomment %}
-{% assign docs = site.RegularPages | where: 'Section', 'docs' | sort: 'Weight' %}
+{% assign docs = site.RegularPagesByWeight | where: 'Section', 'docs' %}
 ```
 
 ## Usage examples

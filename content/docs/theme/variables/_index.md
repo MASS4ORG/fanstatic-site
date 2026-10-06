@@ -25,5 +25,5 @@ Fanstatic provides two objects in every Liquid template: `page` and `site`.
 
 For the full lists, see:
 
-- [Page variables](/docs/theme/variables/page) — all `page.*` properties
-- [Site variables](/docs/theme/variables/site) — all `site.*` properties
+- [Page variables](docs/theming/template-variables/page) — all `page.*` properties
+- [Site variables](docs/theming/template-variables/site) — all `site.*` properties

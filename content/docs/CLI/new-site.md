@@ -54,4 +54,4 @@ cd my-blog
 fanstatic serve
 ```
 
-Your site is live at **http://localhost:2341**. Add a theme to see a styled result — see the [theming guide](/docs/theme) or scaffold one with `fanstatic new-theme`.
+Your site is live at **http://localhost:2341**. Add a theme to see a styled result — see the [theming guide](/docs/theming) or scaffold one with `fanstatic new-theme`.

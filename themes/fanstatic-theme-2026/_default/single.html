@@ -7,7 +7,7 @@
     {% endif %}
 
     <ul class="nav">
-        {% for tag in page.TagsReference %}
+        {% for tag in page.Taxonomies.tags %}
         <li class="nav-item"><a class="nav-link" href="{{ tag.Permalink }}">#{{ tag.Title }}</a></li>
         {% endfor %}
     </ul>
@@ -17,7 +17,7 @@
 </article>
 
 {% if page.Params.hasCode %}
-    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js" integrity="sha384-6F4Ibv/ylL12O35KFWTeGTHuBKDz5L6yjKsgv3QHQ8s4NTqlDXq7kMlYXGs7MHFc" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js" integrity="N3QqR/7q+xm3BGX+CBbNI8AUmRRqcsDzToy+0z1NLDI0QmTKW8zvwLvqulJgk3dP" crossorigin="anonymous"></script>
     <script async src="/prism.js"></script>
     <link rel="stylesheet" href="/prism.css">
 {% endif %}

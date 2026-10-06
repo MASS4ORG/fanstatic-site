@@ -162,9 +162,9 @@ Create `_default/single.html`:
             <time datetime="{{ page.Date | date: '%Y-%m-%d' }}">
                 {{ page.Date | date: '%B %d, %Y' }}
             </time>
-            {% if page.Tags %}
+            {% if page.Taxonomies.tags %}
             <div class="tags">
-                {% for tag in page.Tags %}
+                {% for tag in page.Taxonomies.tags %}
                 <a href="{{ tag.Permalink }}" class="tag">{{ tag.Title }}</a>
                 {% endfor %}
             </div>
@@ -202,9 +202,9 @@ Create `_default/list.html`:
     <article class="post-item">
         <h2><a href="{{ post.Permalink }}">{{ post.Title }}</a></h2>
         <time>{{ post.Date | date: '%B %d, %Y' }}</time>
-        {% if post.Tags %}
+        {% if post.Taxonomies.tags %}
         <div class="tags">
-            {% for tag in post.Tags %}
+            {% for tag in post.Taxonomies.tags %}
             <a href="{{ tag.Permalink }}" class="tag">{{ tag.Title }}</a>
             {% endfor %}
         </div>
@@ -387,4 +387,4 @@ Fanstatic includes built-in partials for common functionality. Override them by 
 
 - [Deploy to GitLab Pages](/docs/installation/gitlab)
 - [Output formats](/docs/concepts/output-formats) — RSS, sitemaps, custom formats
-- [Page variables reference](/docs/theme/variables/page) — all available template variables
+- [Page variables reference](docs/theming/template-variables/page) — all available template variables

@@ -21,7 +21,8 @@ fanstatic build [options]
 | `--draft` | `-d` | off | Include draft pages |
 | `--future` | `-f` | off | Include future-dated pages |
 | `--expired` | `-e` | off | Include expired pages |
-| `--template-metrics` | | off | Report per-template render time and compiled-template cache hits |
+| `--continue-on-error` | | off | Exit with 0 even when template errors were found |
+| `--template-metrics` | | off | Report inclusive top-level template render time and compiled-template cache hits |
 | `--verbose` | `-v` | off | Verbose logging |
 
 ## Examples
@@ -41,6 +42,29 @@ fanstatic build --verbose
 
 # Report time spent rendering each template
 fanstatic build --template-metrics
+```
+
+Metrics are inclusive: work performed by `{% render %}` and `{% include %}` contributes to the caller's time, but
+partials are not reported as separate rows. Lazy `page.Content` rendering time is charged to the first template
+that reads it, and its value is cached afterward.
+
+## Template errors
+
+Templates are compiled before the build starts, so a broken theme is reported up front with the file, line, and
+column of the offending tag:
+
+```
+[ERR] 'themes/my-theme/_default/baseof.html:34:5': 'unknown_tag' is not a known tag (rendering 'blog/post-1.md')
+  {% unknown_tag %}
+```
+
+A build with template errors exits with a non-zero status code and no output files are considered trustworthy. Pass
+`--continue-on-error` to still exit with 0 — useful when you want to inspect the generated pages despite a broken
+theme, for example during `serve`:
+
+```sh
+# Keep going after template errors and exit with 0
+fanstatic build --continue-on-error
 ```
 
 ## Output

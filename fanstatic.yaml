@@ -1,5 +1,5 @@
 Title: "Fanstatic"
-BaseURL: https://fanstatic.mass4.org
+# BaseURL: https://fanstatic.mass4.org
 Description: Tastiest C# Static Site Generator of the World
 Copyright: "<a href='https://brunomassa.com'>Bruno Massa</a>"
 

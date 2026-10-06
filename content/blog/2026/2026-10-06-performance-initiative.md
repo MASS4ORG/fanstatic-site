@@ -209,7 +209,6 @@ The first version of this gate is deliberately conservative: its baseline was re
 ## Good to know
 
 * **How we measured.** .NET SDK 10.0.112, one machine, medians of 5 builds after a warm-up, using Fanstatic's own Parse, Create and Total figures. 7.1.1 and 7.2.0 were built from source with identical publish flags. Your hardware and theme will give different absolute numbers; the shape of the curves is the point.
-* **Released binaries are not identical to source builds.** Our packaged, trimmed binary is slower than a plain self-contained build. We measured Turian at 1,555 ms with the packaged 7.1.1 and 1,175 ms with a packaged 7.2.0, which is the same relative gain (-24%) at a higher baseline. We are looking at why.
 * **7.2.0 contains more than speed.** It also ships configurable taxonomies, so pages that show tags and categories can differ from 7.1.1. Read the [taxonomy guide](/docs/content/taxonomy) when you upgrade.
 * **Equal-weight ordering is now stable.** Lists that relied on an accidental order may come out differently once; they will not change again from build to build.
 

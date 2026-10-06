@@ -108,5 +108,5 @@ Files in `themes/my-theme/static/` are copied to the site root during build. `th
 Fanstatic uses the [Fluid](https://github.com/sebastienros/fluid) Liquid engine. The full Liquid syntax reference is at [shopify.github.io/liquid](https://shopify.github.io/liquid/).
 
 For all available template variables, see:
-- [Page variables](/docs/theme/variables/page)
-- [Site variables](/docs/theme/variables/site)
+- [Page variables](docs/theming/template-variables/page)
+- [Site variables](docs/theming/template-variables/site)
