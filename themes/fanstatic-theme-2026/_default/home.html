@@ -36,7 +36,7 @@
 <script src="/typewriter.js"></script>
 
 <!-- Feature cards -->
-{% assign sortedPages = site.RegularPages | where: 'Section', 'homepage' | sort: 'Weight' %}
+{% assign sortedPages = site.RegularPagesByWeight | where: 'Section', 'homepage' %}
 <section class="features-section">
     <div class="container">
         <div class="row g-4">

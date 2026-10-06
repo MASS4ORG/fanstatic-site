@@ -4,7 +4,7 @@
 
 {{ page.ContentPreRendered }}
 
-{% assign sortedPages = page.RegularPages | sort: 'Date' | reverse %}
+{% assign sortedPages = page.RegularPagesByDate | reverse %}
 {% assign pager = sortedPages | paginate: 10 %}
 
 {% for pageList in pager.PageItems %}
