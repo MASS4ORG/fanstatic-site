@@ -21,6 +21,7 @@ fanstatic build [options]
 | `--draft` | `-d` | off | Include draft pages |
 | `--future` | `-f` | off | Include future-dated pages |
 | `--expired` | `-e` | off | Include expired pages |
+| `--template-metrics` | | off | Report per-template render time and compiled-template cache hits |
 | `--verbose` | `-v` | off | Verbose logging |
 
 ## Examples
@@ -37,6 +38,9 @@ fanstatic build --draft --future
 
 # Verbose build for debugging
 fanstatic build --verbose
+
+# Report time spent rendering each template
+fanstatic build --template-metrics
 ```
 
 ## Output
