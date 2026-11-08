@@ -20,7 +20,7 @@ This site is powered by the incredible Bootstrap library and hosted on [GitHub P
 ## API Documentation Automation
 
 To keep the website's API documentation in sync with the core Fanstatic engine, use the provided `update-api.cs` script. This script automates the following steps:
-1. Detects the current version from the Fanstatic source code (`../Fanstatic`).
+1. Detects the current version from the Fanstatic source code (`../../../../dev/Fanstatic`).
 2. Generates the API reference using `fanstatic api`.
 
 **Usage:**

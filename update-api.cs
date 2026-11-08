@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text.RegularExpressions;
 
 // Configuration
-string csprojPath = "../Fanstatic/Fanstatic/Fanstatic.csproj";
+string csprojPath = "../../../../dev/Fanstatic/Fanstatic/Fanstatic.csproj";
 string apiIndexPath = "content/api/index.md";
-string projectPath = "../Fanstatic";
+string projectPath = "../../../../dev/Fanstatic";
 
 if (!File.Exists(csprojPath))
 {

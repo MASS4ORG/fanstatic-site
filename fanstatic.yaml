@@ -23,20 +23,17 @@ Params:
 
   SocialNetworks:
     - id: ko-fi
-      url: https://ko-fi.com/brmassa
+      url: https://ko-fi.com/MASS4
       icon_class: bi-heart-fill text-danger
     - id: github
       url: https://github.com/MASS4ORG/Fanstatic
       icon_class: bi-github
     - id: mastodon
-      url: https://fosstodon.org/@Fanstatic
+      url: https://mastodon.social/@mass4
       icon_class: bi-mastodon
-    - id: twitter
-      url: https://twitter.com/Fanstatic_SSG
-      icon_class: bi-twitter
     - id: matrix
-      url: https://matrix.to/#/#Fanstatic:matrix.org
+      url: https://matrix.to/#/#mass4:matrix.org
       icon_class: bi-hash
     - id: discord
-      url: https://discord.com/channels/1112051704733647058/1112051705316638835
+      url: https://discord.gg/uVmtZwkzfs
       icon_class: bi-discord
